@@ -1,8 +1,8 @@
-
+import React from 'react';
 import './App.css';
 import {Switch,Route,Link, BrowserRouter, Routes} from 'react-router-dom'
 import { Layout, Space, Typography } from 'antd';
-import {Navbar} from './components'
+import {Navbar, Exchanges,Homepage,CryptoDetails,Cryptocurrencies,News} from './components'
 
 
 function App() {
@@ -15,28 +15,27 @@ function App() {
       </div>
       <div className='main'>
         <Layout>
-          <Switch>
-            <Route exact path="/">
-              <Homepage/>
-            </Route>
-            <Route exact path="/exchanges"> 
-              <Exchanges/>
-            </Route>
-            <Route exact path='/cryptourrencies'>
-              <Cryptocurrencies/>
-            </Route>
-            <Route exact path='/crypto/:coinID'>
-              <CryptoDetails/>
-            </Route>
-            <Route exact path='/news'>
-              <News/>
-            </Route>
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Homepage/>}/>
+              
+            <Route exact path="/exchanges" element={<Exchanges/>}/> 
+              
+            <Route exact path='/cryptocurrencies' element={<Cryptocurrencies/>}/>
+              
+            <Route exact path='/crypto/:coinID' element={<CryptoDetails/>}/>
+              
+            <Route exact path='/news' element={<News/>}/>
+              
+          </Routes>
         </Layout>
-      </div>
 
       <div className='footer'>
-
+          <Typography.Title level={5} >
+          
+              <Link>All rights reserved Anuj Rana</Link>
+            
+          </Typography.Title>
+      </div>
       </div>
     </div>
   );
